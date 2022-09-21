@@ -3,12 +3,8 @@
 num = ''
 while len(num) == 0:
     user_input = input('Введите число: ')
-    if not user_input.isdigit():
+    if not user_input.replace('.', '', 1).isdigit():
         print('Должно быть введено число')
     else:
         num = user_input
-sum_ = 0
-for n in num:
-    if n.isdigit():
-        sum_ += int(n)
-print(f'Сумма чисел: {sum_}')
+print(f'Сумма цифр: {sum(map(int, filter(lambda x: x.isdigit(), num)))}')
